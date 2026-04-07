@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01. Scenes/ClothingScene.unity
     guid: bd983d4e8d22fce4792435c3f9b6dda9
+  - enabled: 1
+    path: Assets/01. Scenes/CharacterMoveScene.unity
+    guid: 55f392d493eed3a43800d299dfe727ec
   m_configObjects: {}
