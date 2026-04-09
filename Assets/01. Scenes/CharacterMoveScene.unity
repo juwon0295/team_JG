@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccddc08f83498a6468939c96321c181f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReturnButton
-  interactDistance: 3
+  interactDistance: 1.5
   interactText: {fileID: 915559873}
 --- !u!65 &428784554
 BoxCollider:
