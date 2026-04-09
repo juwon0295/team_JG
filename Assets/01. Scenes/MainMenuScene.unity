@@ -323,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 647242632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.692, y: 1.7, z: 4.464}
+  m_LocalPosition: {x: -2.854, y: 1.7, z: 4.464}
   m_LocalScale: {x: 0.1, y: 0.2, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -341,7 +341,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccddc08f83498a6468939c96321c181f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoConvenienceStoreButton
+<<<<<<< HEAD
   interactDistance: 1.8
+=======
+  interactDistance: 2
+>>>>>>> 1bcc5a8b391798bbe0a45b049d3982cbc235c9de
   interactText: {fileID: 2126693204}
 --- !u!1 &749345342
 GameObject:
@@ -499,7 +503,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 79.725975
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -526,7 +530,7 @@ Transform:
   m_GameObject: {fileID: 756804147}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7, z: -1}
+  m_LocalPosition: {x: 0, y: 1.7, z: -0.069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -778,7 +782,7 @@ Transform:
   m_GameObject: {fileID: 980396840}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
