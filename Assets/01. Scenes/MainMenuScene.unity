@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccddc08f83498a6468939c96321c181f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoConvenienceStoreButton
-  interactDistance: 1.5
+  interactDistance: 1.8
   interactText: {fileID: 2126693204}
 --- !u!1 &749345342
 GameObject:
