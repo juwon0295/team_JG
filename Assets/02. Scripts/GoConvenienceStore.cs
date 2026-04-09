@@ -4,7 +4,7 @@ using TMPro;
 
 public class GoConvenienceStoreButton : MonoBehaviour
 {
-    public float interactDistance = 3f; // 상호작용 가능한 거리
+    public float interactDistance = 1.5f; // 상호작용 가능한 거리
     public TextMeshProUGUI interactText; // 안내 텍스트 연결할 변수
     private Transform player;
 
