@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d71fa406a9c87764492abd2a93603b91
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342988
+  packageName: Modular Convenience Store With Products
+  packageVersion: 1.0
+  assetPath: Assets/SwitchboardStudios/ConvenienceStore/HDRP/Art/Materials/M_LaminateFloor.mat
+  uploadId: 813744

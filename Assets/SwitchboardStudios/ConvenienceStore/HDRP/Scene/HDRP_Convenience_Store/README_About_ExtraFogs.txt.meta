@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b801d5aa96825c34685cfdb957941e27
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342988
+  packageName: Modular Convenience Store With Products
+  packageVersion: 1.0
+  assetPath: Assets/SwitchboardStudios/ConvenienceStore/HDRP/Scene/HDRP_Convenience_Store/README_About_ExtraFogs.txt
+  uploadId: 813744
