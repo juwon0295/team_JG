@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7d724bde87fdc854180034aac27b4767
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342988
+  packageName: Modular Convenience Store With Products
+  packageVersion: 1.0
+  assetPath: Assets/SwitchboardStudios/ConvenienceStore/HDRP/Art/Shadergraphs/S_Decal.shadergraph
+  uploadId: 813744

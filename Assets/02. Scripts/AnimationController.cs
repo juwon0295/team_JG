@@ -22,6 +22,7 @@ public class AnimationController : MonoBehaviour
         v = Input.GetAxis("Vertical");
         h = Input.GetAxis("Horizontal");
         animator.SetFloat("v", v);
+        animator.SetFloat("h", h);
         PlayerTr.Translate(new Vector3(h,0,v)*moveSpeed*Time.deltaTime);
     }
 }

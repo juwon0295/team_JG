@@ -1,8 +1,13 @@
 {
   "dependencies": {
     "com.unity.multiplayer.center": "1.0.1",
+<<<<<<< HEAD
     "com.unity.postprocessing": "3.5.1",
     "com.unity.progrids": "3.0.3-preview.6",
+=======
+    "com.unity.render-pipelines.universal": "17.4.0",
+    "com.unity.shadergraph": "17.4.0",
+>>>>>>> 811d19148f6f51a45df9fe9bbe3d040d835fe4e2
     "com.unity.ugui": "2.0.0",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.adaptiveperformance": "1.0.0",
