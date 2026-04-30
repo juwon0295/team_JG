@@ -103,3 +103,5 @@ public class PlayerPickup : MonoBehaviour
         heldObject = null;
     }
 }
+
+//물건 둘때 조준점 활용 예정
