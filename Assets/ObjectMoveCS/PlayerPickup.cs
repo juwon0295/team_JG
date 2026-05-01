@@ -10,29 +10,24 @@ public class PlayerPickup : MonoBehaviour
 
     [Header("UI 텍스트")]
     public GameObject pickupUI;            // 'E버튼을 눌러서 들기' 텍스트 오브젝트
+    public GameObject placeUI;             // 'E버튼을 눌러서 놓기' 텍스트 오브젝트
 
     private PickupObject heldObject = null; // 현재 손에 들고 있는 물건
 
     void Update()
-    {
+    { 
         // 아무것도 안 들고 있을 때 → 조준 감지
-        if (heldObject == null)
-        {
-            CheckAiming();
-        }
-        else
-        {
-            if (pickupUI != null)
-                pickupUI.SetActive(false);
-
-            // E키를 누르면 지정 위치에 내려놓기
-            if (Input.GetKeyDown(KeyCode.E))
-                PlaceObject();
-        }
+        if (heldObject == null) { 
+            CheckAiming(); 
+        } else { 
+            if (pickupUI != null) 
+                pickupUI.SetActive(false); // 물건을 들고 있을 때 → 놓을 위치 조준 감지
+            CheckPlaceAiming();
+        } 
     }
 
-    // 카메라 정중앙에서 레이캐스트를 쏴서 PickupObject가 있는지 감지
-    void CheckAiming()
+        // 카메라 정중앙에서 레이캐스트를 쏴서 PickupObject가 있는지 감지
+        void CheckAiming()
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
@@ -60,6 +55,35 @@ public class PlayerPickup : MonoBehaviour
         {
             if (pickupUI != null)
                 pickupUI.SetActive(false);
+        }
+    }
+
+    void CheckPlaceAiming()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, pickupRange))
+        {
+            // placeTarget과 같은 오브젝트를 바라보고 있는지 체크
+            if (hit.transform == heldObject.placeTarget)
+            {
+                if (placeUI != null)
+                    placeUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                    PlaceObject();
+            }
+            else
+            {
+                if (placeUI != null)
+                    placeUI.SetActive(false);
+            }
+        }
+        else
+        {
+            if (placeUI != null)
+                placeUI.SetActive(false);
         }
     }
 
@@ -99,9 +123,8 @@ public class PlayerPickup : MonoBehaviour
         if (col != null) col.enabled = true;
 
         // 한 번 놓으면 다시 못 집게 스크립트 제거
-        Destroy(heldObject.GetComponent<PickupObject>());
+        Destroy(heldObject.GetComponent<PickupObject>());   
+        if (placeUI != null) placeUI.SetActive(false);      // 놓은 후 UI 숨기기
         heldObject = null;
     }
 }
-
-//물건 둘때 조준점 활용 예정
