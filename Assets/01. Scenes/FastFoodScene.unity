@@ -1894,7 +1894,7 @@ MonoBehaviour:
   openSpeed: 3
   isOpen: 0
   isLocked: 0
-  interactDistance: 10
+  interactDistance: 2.5
   npcDetectDistance: 3
 --- !u!1001 &77740035
 PrefabInstance:
@@ -8540,6 +8540,14 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4484029479051632204, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484029479051632204, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484029479051632204, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.33439
       objectReference: {fileID: 0}
@@ -8588,9 +8596,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3851045666942928118, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 410603888}
-    - targetCorrespondingSourceObject: {fileID: 3851045666942928118, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 410603895}
     - targetCorrespondingSourceObject: {fileID: 4447059492056829000, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
       insertIndex: -1
@@ -8631,18 +8636,7 @@ MonoBehaviour:
   pickupRange: 3
   holdPoint: {fileID: 700649507}
   pickupUI: {fileID: 0}
---- !u!114 &410603888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410603886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd139fa717bafd44ac76f9f71be976d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerPickupController
+  placeUI: {fileID: 0}
 --- !u!114 &410603895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30549,7 +30543,7 @@ MonoBehaviour:
   openSpeed: 3
   isOpen: 0
   isLocked: 0
-  interactDistance: 10
+  interactDistance: 2.5
   npcDetectDistance: 3
 --- !u!1 &1461174502
 GameObject:
