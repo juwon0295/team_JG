@@ -15,13 +15,13 @@ public class DoorController : MonoBehaviour
     private Quaternion openRotation;
     private bool isAnimating = false;
     private bool npcOpened = false;
-    private Collider doorCollider;
+    private Collider[] doorColliders;
 
     void Start()
     {
         closedRotation = transform.rotation;
         openRotation = closedRotation * Quaternion.Euler(0, openAngle, 0);
-        doorCollider = GetComponent<Collider>();
+        doorColliders = GetComponentsInChildren<Collider>();
     }
 
     void Update()
@@ -53,8 +53,8 @@ public class DoorController : MonoBehaviour
             }
         }
 
-        if (doorCollider != null)
-            doorCollider.enabled = !isOpen;
+        foreach (var col in doorColliders)
+            col.enabled = !isOpen;
     }
 
     public void ToggleDoor()
