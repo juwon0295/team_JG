@@ -1,54 +1,47 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
-    [Header("ì¡°ì¤€ ì„¤ì •")]
-    public float pickupRange = 3f;              // ë¬¼ê±´ì„ ì§‘ì„ ìˆ˜ ìˆëŠ” ìµœëŒ€ ê±°ë¦¬
+    [Header("Á¶ÁØ ¼³Á¤")]
+    public float pickupRange = 3f;         // ¹°°ÇÀ» ÁıÀ» ¼ö ÀÖ´Â ÃÖ´ë °Å¸®
 
-    [Header("ì† ìœ„ì¹˜")]
-    public Transform holdPoint;                 // ì¹´ë©”ë¼ ì• ë¹ˆ ì˜¤ë¸Œì íŠ¸ (ë¬¼ê±´ì´ ë¶™ì„ ìœ„ì¹˜)
+    [Header("¼Õ À§Ä¡")]
+    public Transform holdPoint;            // Ä«¸Ş¶ó ¾Õ ºó ¿ÀºêÁ§Æ® (¹°°ÇÀÌ ºÙÀ» À§Ä¡)
 
-    [Header("UI í…ìŠ¤íŠ¸")]
-    public GameObject pickupUI;                 // 'Eë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ë“¤ê¸°' í…ìŠ¤íŠ¸ ì˜¤ë¸Œì íŠ¸
-    public GameObject placeUI;                  // 'Eë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ë†“ê¸°' í…ìŠ¤íŠ¸ ì˜¤ë¸Œì íŠ¸
+    [Header("UI ÅØ½ºÆ®")]
+    public GameObject pickupUI;            // 'E¹öÆ°À» ´­·¯¼­ µé±â' ÅØ½ºÆ® ¿ÀºêÁ§Æ®
+    public GameObject placeUI;             // 'E¹öÆ°À» ´­·¯¼­ ³õ±â' ÅØ½ºÆ® ¿ÀºêÁ§Æ®
 
-    private PickupObject heldObject = null;     // í˜„ì¬ ì†ì— ë“¤ê³  ìˆëŠ” ë¬¼ê±´
+    private PickupObject heldObject = null; // ÇöÀç ¼Õ¿¡ µé°í ÀÖ´Â ¹°°Ç
 
     void Update()
-    {
-        // ì•„ë¬´ê²ƒë„ ì•ˆ ë“¤ê³  ìˆì„ ë•Œ â†’ ì¡°ì¤€ ê°ì§€
-        if (heldObject == null)
-        {
-            CheckAiming();
-        }
-        else
-        {
-            // ë¬¼ê±´ì„ ë“¤ê³  ìˆì„ ë•Œ â†’ ì§‘ê¸° UI ìˆ¨ê¸°ê³  ë†“ì„ ìœ„ì¹˜ ì¡°ì¤€ ê°ì§€
-            if (pickupUI != null)
-                pickupUI.SetActive(false);
+    { 
+        // ¾Æ¹«°Íµµ ¾È µé°í ÀÖÀ» ¶§ ¡æ Á¶ÁØ °¨Áö
+        if (heldObject == null) { 
+            CheckAiming(); 
+        } else { 
+            if (pickupUI != null) 
+                pickupUI.SetActive(false); // ¹°°ÇÀ» µé°í ÀÖÀ» ¶§ ¡æ ³õÀ» À§Ä¡ Á¶ÁØ °¨Áö
             CheckPlaceAiming();
-        }
+        } 
     }
 
-    // ì¹´ë©”ë¼ ì •ì¤‘ì•™(ì¡°ì¤€ì )ì—ì„œ ë ˆì´ìºìŠ¤íŠ¸ë¥¼ ì´ì„œ PickupObject ê°ì§€
-    void CheckAiming()
+        // Ä«¸Ş¶ó Á¤Áß¾Ó¿¡¼­ ·¹ÀÌÄ³½ºÆ®¸¦ ½÷¼­ PickupObject°¡ ÀÖ´ÂÁö °¨Áö
+        void CheckAiming()
     {
-        // ì¹´ë©”ë¼ ì¤‘ì•™ì—ì„œ Ray ë°œì‚¬ (ì¡°ì¤€ì  ê¸°ì¤€)
-        int layerMask = LayerMask.GetMask("Pickable");
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, pickupRange, layerMask))
+        if (Physics.Raycast(ray, out hit, pickupRange))
         {
+            // Á¶ÁØµÈ ¿ÀºêÁ§Æ®¿¡ PickupObject ½ºÅ©¸³Æ®°¡ ÀÖÀ¸¸é ÁıÀ» ¼ö ÀÖ´Â ¹°°Ç
             PickupObject po = hit.collider.GetComponent<PickupObject>();
 
             if (po != null)
             {
-                // ì§‘ì„ ìˆ˜ ìˆëŠ” ë¬¼ê±´ì„ ì¡°ì¤€ ì¤‘ â†’ ì§‘ê¸° UI í‘œì‹œ
                 if (pickupUI != null)
                     pickupUI.SetActive(true);
 
-                // Eí‚¤ ëˆ„ë¥´ë©´ ì§‘ê¸°
                 if (Input.GetKeyDown(KeyCode.E))
                     PickUp(po);
             }
@@ -65,22 +58,19 @@ public class PlayerPickup : MonoBehaviour
         }
     }
 
-    // ë†“ì„ ìœ„ì¹˜(placeTarget)ë¥¼ ì¡°ì¤€ ì¤‘ì¸ì§€ ê°ì§€
     void CheckPlaceAiming()
     {
-        // ì¹´ë©”ë¼ ì¤‘ì•™ì—ì„œ Ray ë°œì‚¬ (ì¡°ì¤€ì  ê¸°ì¤€)
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, pickupRange))
         {
-            // placeTargetê³¼ ê°™ì€ ì˜¤ë¸Œì íŠ¸ë¥¼ ë°”ë¼ë³´ê³  ìˆëŠ”ì§€ ì²´í¬
+            // placeTarget°ú °°Àº ¿ÀºêÁ§Æ®¸¦ ¹Ù¶óº¸°í ÀÖ´ÂÁö Ã¼Å©
             if (hit.transform == heldObject.placeTarget)
             {
                 if (placeUI != null)
                     placeUI.SetActive(true);
 
-                // Eí‚¤ ëˆ„ë¥´ë©´ ë‚´ë ¤ë†“ê¸°
                 if (Input.GetKeyDown(KeyCode.E))
                     PlaceObject();
             }
@@ -97,54 +87,44 @@ public class PlayerPickup : MonoBehaviour
         }
     }
 
-    // ë¬¼ê±´ì„ holdPoint ìì‹ìœ¼ë¡œ ë¶™ì´ê³  ë¬¼ë¦¬/ì½œë¼ì´ë” ë¹„í™œì„±í™”
+    // ¹°°ÇÀ» holdPoint ÀÚ½ÄÀ¸·Î ºÙÀÌ°í ¹°¸®/Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
     void PickUp(PickupObject obj)
     {
         heldObject = obj;
         heldObject.isHeld = true;
 
-        // âœ… Rigidbody ì œê±°í•˜ì§€ ë§ê³  ë¬¼ë¦¬ë§Œ ë„ê¸°
-        Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-            rb.useGravity = false;
-        }
-
-        // ColliderëŠ” ë„ì§€ ë§ê³  Raycastë§Œ ë¬´ì‹œí•˜ë„ë¡ ë ˆì´ì–´ ë³€ê²½
-        heldObject.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-
-        // HoldPointì— ë¶™ì´ê¸°
+        // ¹°°ÇÀ» ¼Õ À§Ä¡¿¡ ºÙÀÌ±â
         heldObject.transform.SetParent(holdPoint);
         heldObject.transform.localPosition = Vector3.zero;
         heldObject.transform.localRotation = Quaternion.identity;
+
+        // µé°í ÀÖ´Â µ¿¾È ¹°¸®/Ãæµ¹ ºñÈ°¼ºÈ­
+        Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = true;
+
+        Collider col = heldObject.GetComponent<Collider>();
+        if (col != null) col.enabled = false;
     }
 
-
+    // °¢ ¹°°ÇÀÇ placeTarget À§Ä¡¿¡ ³»·Á³õ°í ¹°¸®/Äİ¶óÀÌ´õ º¹¿ø
     void PlaceObject()
     {
         heldObject.transform.SetParent(null);
 
+        // ¹°°Ç¸¶´Ù ÁöÁ¤µÈ À§Ä¡(placeTarget)·Î ÀÌµ¿
         heldObject.transform.position = heldObject.placeTarget.position;
+        heldObject.transform.rotation = Quaternion.identity;
 
-        // Yì¶• 90ë„ íšŒì „
-        heldObject.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-
+        // ³»·Á³õÀº ÈÄ ¹°¸®/Ãæµ¹ º¹¿ø
         Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-        }
+        if (rb != null) rb.isKinematic = false;
 
-        // ë‹¤ì‹œ ëª» ë“¤ê²Œ í•˜ê¸°
-        heldObject.gameObject.layer = LayerMask.NameToLayer("Placed");
+        Collider col = heldObject.GetComponent<Collider>();
+        if (col != null) col.enabled = true;
 
-        if (placeUI != null)
-            placeUI.SetActive(false);
-
-        heldObject.isHeld = false;
+        // ÇÑ ¹ø ³õÀ¸¸é ´Ù½Ã ¸ø Áı°Ô ½ºÅ©¸³Æ® Á¦°Å
+        Destroy(heldObject.GetComponent<PickupObject>());   
+        if (placeUI != null) placeUI.SetActive(false);      // ³õÀº ÈÄ UI ¼û±â±â
         heldObject = null;
     }
 }
-
