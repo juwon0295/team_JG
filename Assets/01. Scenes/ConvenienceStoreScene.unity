@@ -516,7 +516,7 @@ MonoBehaviour:
   m_text: "E\uD0A4\uB97C \uB20C\uB7EC \uB85C\uBE44\uB85C \uC774\uB3D9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3568e71df21078a48913f4232d8b4f7a, type: 2}
-  m_sharedMaterial: {fileID: 5617579765862165762, guid: 3568e71df21078a48913f4232d8b4f7a, type: 2}
+  m_sharedMaterial: {fileID: -6838509147769377085, guid: 3568e71df21078a48913f4232d8b4f7a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -746,6 +746,7 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 2
   mouseSpeed: 1.5
+  posUI: {fileID: 0}
 --- !u!143 &718338514
 CharacterController:
   m_ObjectHideFlags: 0
