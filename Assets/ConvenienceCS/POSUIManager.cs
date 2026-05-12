@@ -9,7 +9,7 @@ public class POSUIManager : MonoBehaviour
     public TMP_Text displayText;           // 입력값 표시 텍스트
 
     private string currentInput = "";      // 현재 입력된 숫자
-    private bool isOpen = false;           // UI 열림 여부
+    public bool isOpen = false;           // UI 열림 여부
 
     void Start()
     {
@@ -72,7 +72,13 @@ public class POSUIManager : MonoBehaviour
     // ── 버튼/키보드에서 숫자 추가 ────────────────
     public void AddNumber(string number)
     {
-        if (currentInput.Length >= 8) return;  // 최대 8자리 제한
+        // 00, 000 입력 시 전체 길이가 8자리 넘지 않게 제한
+        if (currentInput.Length + number.Length > 8) return;
+
+        // 맨 앞에 0이 여러 개 오는 것 방지 (예: 000123 방지)
+        if (currentInput == "" && number == "00") return;
+        if (currentInput == "" && number == "000") return;
+
         currentInput += number;
         UpdateDisplay();
     }
