@@ -19,6 +19,7 @@ public class NpcSpawner : MonoBehaviour
             float delay = Random.Range(3f, 10f);
             yield return new WaitForSeconds(delay);
 
+<<<<<<< HEAD
             // 랜덤 NPC 선택
             GameObject prefab = npcPrefabs[Random.Range(0, npcPrefabs.Length)];
 
@@ -33,6 +34,9 @@ public class NpcSpawner : MonoBehaviour
             {
                 yield return null;
             }
+=======
+            Instantiate(npcPrefab, new Vector3(10f, 0f, 0f), Quaternion.identity);
+>>>>>>> 1b352ea8cb26a08390a7b98ab55b2bd03fb92bad
         }
     }
 }
