@@ -17,7 +17,7 @@ public class NpcSpawner : MonoBehaviour
             float delay = Random.Range(3f, 10f);
             yield return new WaitForSeconds(delay);
 
-            Instantiate(npcPrefab, new Vector3(10f, 0f, 0f), Quaternion.identity);
+            Instantiate(npcPrefab, new Vector3(1f, 4.65f, 15f), Quaternion.identity);
         }
     }
 }
