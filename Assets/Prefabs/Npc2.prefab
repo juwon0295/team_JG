@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8874200303297860129
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.432
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.46514
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_Name
+      value: Npc2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6e2b947ebce219e4dada8b16a44b9fc5, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917610843122428420}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2243189737323542167}
+  m_SourcePrefab: {fileID: 100100000, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+--- !u!95 &3048351464171450288 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+  m_PrefabInstance: {fileID: 8874200303297860129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8639619295044087664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d60ed46f2031e44da86e56ffd410619, type: 3}
+  m_PrefabInstance: {fileID: 8874200303297860129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1917610843122428420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639619295044087664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 426c852dfe65f76409a2053075cd3459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcController
+  speed: 2
+--- !u!114 &2243189737323542167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639619295044087664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131060a56d8fd844fbb99c671ede9655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcAniController
+  animator: {fileID: 3048351464171450288}

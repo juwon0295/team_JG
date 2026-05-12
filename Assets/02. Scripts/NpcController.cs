@@ -5,29 +5,40 @@ public class NpcController : MonoBehaviour
 {
     public float speed = 2f;
 
-    Vector3 target1 = new Vector3(0f, 0f, 0f);
-    Vector3 target2 = new Vector3(10f, 0f, 0f);
+    Vector3 startPos;
+
+    Vector3[] targets = new Vector3[]
+    {
+        new Vector3(7.1f, 3.5f, 16.1f),
+        new Vector3(7.3f, 3.5f, 22.8f),
+        new Vector3(-1.2f, 3.5f, 23.3f),
+        new Vector3(2f, 3.5f, 22.8f),
+        new Vector3(2.19f, 3.5f, 18.56f),
+        new Vector3(0f, 3.5f, 16.8f)
+    };
 
     void Start()
     {
+        startPos = transform.position;
         StartCoroutine(NpcRoutine());
     }
 
     IEnumerator NpcRoutine()
     {
-        // (0,0,0)으로 이동
-        yield return StartCoroutine(MoveTo(target1));
+        for (int i = 0; i < targets.Length; i++)
+        {
+            yield return StartCoroutine(MoveTo(targets[i]));
 
-        // 대사 출력
-        Debug.Log("Hi");
+            // 마지막 좌표 도착 시 실행
+            if (i == targets.Length - 1)
+            {
+                Debug.Log("HI");
+                yield return new WaitForSeconds(2f);
+            }
+        }
 
-        // 2초 대기
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(MoveTo(startPos));
 
-        // 다시 (10,0,0)으로 이동
-        yield return StartCoroutine(MoveTo(target2));
-
-        // 삭제
         Destroy(gameObject);
     }
 
@@ -37,7 +48,6 @@ public class NpcController : MonoBehaviour
         {
             Vector3 dir = (target - transform.position).normalized;
 
-            // ✅ 바라보는 방향 설정
             if (dir != Vector3.zero)
             {
                 transform.forward = dir;
