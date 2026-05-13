@@ -48,7 +48,13 @@ public class PlayerController : MonoBehaviour
 
     void Look()
     {
-        if (posUI.isOpen) return;
+
+        // 포스기 UI가 열려있으면 카메라 회전 차단
+        if (posUI != null && posUI.isOpen) return;
+        // 나중에 다른 UI 추가 시 아래처럼 추가하면 됨
+        // if (inventoryUI.isOpen) return;
+        // if (dialogueUI.isOpen) return;
+        
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSpeed;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed;
