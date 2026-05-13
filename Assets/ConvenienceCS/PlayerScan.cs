@@ -9,6 +9,9 @@ public class PlayerScan : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // 좌클릭
         {
+            // 포스기 UI가 열려있으면 스캔 막기 (UI 버튼 클릭 보호)
+            if (posManager.isOpen) return;
+
             Scan();
         }
     }
