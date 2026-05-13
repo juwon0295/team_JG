@@ -4705,8 +4705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5303f63cd2558504190618a81865dd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::POSUIManager
-  posPanel: {fileID: 851752051}
-  displayText: {fileID: 453379126}
+  totalPriceText: {fileID: 0}
+  inputText: {fileID: 0}
+  errorText: {fileID: 0}
   isOpen: 0
 --- !u!114 &851752054
 MonoBehaviour:
