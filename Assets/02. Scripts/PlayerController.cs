@@ -54,9 +54,7 @@ public class PlayerController : MonoBehaviour
         // 나중에 다른 UI 추가 시 아래처럼 추가하면 됨
         // if (inventoryUI.isOpen) return;
         // if (dialogueUI.isOpen) return;
-=======
         
- 75ccd79d10acabed1a0441ff46b60dd9ea24c33a
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSpeed;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed;
