@@ -1,21 +1,22 @@
 using UnityEngine;
 using TMPro;
 
-public class POSManager : MonoBehaviour
+public class POSUIManager : MonoBehaviour
 {
     [Header("UI 연결")]
     public TextMeshProUGUI totalPriceText; // 총 가격 표시 텍스트
     public TextMeshProUGUI inputText;      // 플레이어 입력값 표시 텍스트
     public GameObject errorText;           // "가격이 다릅니다" 메시지 오브젝트
 
+    public bool isOpen = false; // 포스기가 켜져있는지 상태 확인
+
     private int totalPrice = 0;      // 현재까지 스캔된 총 가격
     private string currentInput = ""; // 플레이어가 입력한 숫자
-    private bool isActive = false;    // 포스기 활성화 상태 (켜짐/꺼짐)
 
     void Update()
     {
-        // 포스기가 꺼져 있으면 입력 받지 않음
-        if (!isActive) return;
+        // 포스기 꺼져있으면 입력 막기
+        if (!isOpen) return;
 
         HandleInput();
     }
@@ -30,13 +31,19 @@ public class POSManager : MonoBehaviour
     // 포스기 켜기
     public void OpenPOS()
     {
-        isActive = true;       // 입력 가능 상태로 변경
+        isOpen = true;       // 입력 가능 상태로 변경
         currentInput = "";     // 입력값 초기화
 
         if (errorText != null)
             errorText.SetActive(false); // 에러 메시지 숨김
 
         UpdateUI();
+    }
+
+    // 포스기 끄기
+    public void ClosePOS()
+    {
+        isOpen = false; // 꺼짐
     }
 
     // 키보드 입력 처리
@@ -79,7 +86,8 @@ public class POSManager : MonoBehaviour
 
             totalPrice = 0;   // 총 가격 초기화
             currentInput = ""; // 입력값 초기화
-            isActive = false; // 포스기 종료
+
+            ClosePOS(); // 포스기 종료
 
             UpdateUI();
         }

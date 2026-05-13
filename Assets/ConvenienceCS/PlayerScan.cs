@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerScan : MonoBehaviour
 {
     public float scanRange = 3f;      // 스캔 거리
-    public POSManager posManager;     // 포스기 연결
+    public POSUIManager posManager;     // 포스기 연결
 
     void Update()
     {
