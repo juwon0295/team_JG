@@ -40,7 +40,7 @@ public class TrashPickupSystem : MonoBehaviour
         {
             if (hits[0].TryGetComponent(out TrashItem trash) && !trash.isPickedUp)
             {
-                SetPrompt($"[F] {trash.trashName} 줍기");
+                SetPrompt($"[E] {trash.trashName} 줍기");
                 return;
             }
         }
@@ -55,7 +55,7 @@ public class TrashPickupSystem : MonoBehaviour
         {
             if (hits[0].TryGetComponent(out TrashCan _))
             {
-                SetPrompt("[F] 쓰레기통에 버리기   [Q] 내려놓기");
+                SetPrompt("[E] 쓰레기통에 버리기   [Q] 내려놓기");
                 return;
             }
         }
@@ -64,7 +64,7 @@ public class TrashPickupSystem : MonoBehaviour
 
     void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (heldTrash == null) TryPickUp();
             else TryThrowInTrashCan();
