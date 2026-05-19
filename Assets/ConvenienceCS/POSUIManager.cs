@@ -10,6 +10,9 @@ public class POSUIManager : MonoBehaviour
     public TMP_Text totalPriceText;         // 스캔된 총 가격 표시 텍스트
     public GameObject errorText;            // 가격 불일치 메시지 오브젝트
 
+    public MonoBehaviour playerMove;   // 이동 스크립트
+    public MonoBehaviour mouseLook;   // 마우스 회전 스크립트
+
     private string currentInput = "";       // 현재 입력된 숫자
     private int totalPrice = 0;             // 스캔으로 누적된 총 가격
     public bool isOpen = false;             // UI 열림 여부
@@ -18,6 +21,11 @@ public class POSUIManager : MonoBehaviour
     {
         // 게임 시작 시 패널 숨기기
         posPanel.SetActive(false);
+
+        isOpen = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -64,6 +72,11 @@ public class POSUIManager : MonoBehaviour
         // 1인칭 게임: 마우스 커서 잠금 해제
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+
+        // 이동 & 화면 회전 차단
+        playerMove.enabled = false;
+        mouseLook.enabled = false;
     }
 
     // ── 포스기 닫기 ──────────────────────────────
@@ -75,6 +88,11 @@ public class POSUIManager : MonoBehaviour
         // 1인칭 게임: 마우스 커서 다시 잠금
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+
+        // 다시 활성화
+        playerMove.enabled = true;
+        mouseLook.enabled = true;
     }
 
     // ── 스캔 시 가격 누적 (PlayerScan에서 호출) ──
