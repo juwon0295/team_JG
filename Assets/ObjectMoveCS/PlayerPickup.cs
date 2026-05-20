@@ -166,5 +166,8 @@ public class PlayerPickup : MonoBehaviour
         // 상태 초기화
         heldObject.isHeld = false;
         heldObject = null;
+
+        // 물건 배치 완료 → 미션 체크
+        StoreMissionManager.Instance.CompleteRestock();
     }
 }

@@ -100,6 +100,9 @@ public class TrashPickupSystem : MonoBehaviour
                 can.AddTrash(heldTrash);
                 heldTrash = null;
                 SetPrompt("");
+
+                // 쓰레기 버리기 완료 → 미션 체크
+                StoreMissionManager.Instance.CompleteTrash();
             }
         }
     }

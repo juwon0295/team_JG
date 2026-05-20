@@ -10,8 +10,9 @@ public class POSUIManager : MonoBehaviour
     public TMP_Text totalPriceText;         // 스캔된 총 가격 표시 텍스트
     public GameObject errorText;            // 가격 불일치 메시지 오브젝트
 
-    public MonoBehaviour playerMove;   // 이동 스크립트
-    public MonoBehaviour mouseLook;   // 마우스 회전 스크립트
+    [Header("플레이어 연결")]
+    public PlayerController playerController;   // 플레이어 컨트롤러
+    public CharacterController controller;      // 캐릭터 컨트롤러
 
     private string currentInput = "";       // 현재 입력된 숫자
     private int totalPrice = 0;             // 스캔으로 누적된 총 가격
@@ -21,7 +22,6 @@ public class POSUIManager : MonoBehaviour
     {
         // 게임 시작 시 패널 숨기기
         posPanel.SetActive(false);
-
         isOpen = false;
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,15 +45,11 @@ public class POSUIManager : MonoBehaviour
 
         // Backspace → 마지막 숫자 삭제
         if (Input.GetKeyDown(KeyCode.Backspace))
-        {
             DeleteLast();
-        }
 
         // Enter 또는 넘패드 Enter → 가격 비교
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
             CheckPrice();
-        }
     }
 
     // ── 포스기 열기 ──────────────────────────────
@@ -69,14 +65,13 @@ public class POSUIManager : MonoBehaviour
         UpdateDisplay();
         posPanel.SetActive(true);
 
-        // 1인칭 게임: 마우스 커서 잠금 해제
+        // 마우스 커서 잠금 해제
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-
-        // 이동 & 화면 회전 차단
-        playerMove.enabled = false;
-        mouseLook.enabled = false;
+        // 이동 차단 (Look은 PlayerController.Look()의 isOpen 체크로 자동 차단)
+        if (controller != null) controller.enabled = false;
+        if (playerController != null) playerController.canMove = false;
     }
 
     // ── 포스기 닫기 ──────────────────────────────
@@ -85,20 +80,24 @@ public class POSUIManager : MonoBehaviour
         isOpen = false;
         posPanel.SetActive(false);
 
-        // 1인칭 게임: 마우스 커서 다시 잠금
+        // 마우스 커서 다시 잠금
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-
-        // 다시 활성화
-        playerMove.enabled = true;
-        mouseLook.enabled = true;
+        // 이동 재개 (Phase 2에서만 실제로 움직임 - canMove는 GameManager가 관리)
+        if (controller != null) controller.enabled = true;
+        if (playerController != null && GameManager.Instance != null)
+        {
+            // GameManager의 Phase 상태에 따라 이동 여부 결정
+            // Phase 2라면 canMove = true, Phase 1이라면 false 유지
+            playerController.canMove = GameManager.Instance.IsPhase2;
+        }
     }
 
     // ── 스캔 시 가격 누적 (PlayerScan에서 호출) ──
     public void AddPrice(int price)
     {
-        totalPrice += price;        // 스캔된 가격 누적
+        totalPrice += price;
         UpdateDisplay();
     }
 
@@ -108,7 +107,7 @@ public class POSUIManager : MonoBehaviour
         // 입력값이 8자리 넘지 않게 제한
         if (currentInput.Length + number.Length > 8) return;
 
-        // 맨 앞에 0이 여러 개 오는 것 방지 (예: 000123 방지)
+        // 맨 앞에 0이 여러 개 오는 것 방지
         if (currentInput == "" && number == "00") return;
         if (currentInput == "" && number == "000") return;
 
@@ -134,13 +133,13 @@ public class POSUIManager : MonoBehaviour
     // ── 입력값과 총 가격 비교 ─────────────────────
     public void CheckPrice()
     {
-        // 입력값이 비어있으면 0으로 처리
         int inputPrice = currentInput == "" ? 0 : int.Parse(currentInput);
 
         if (inputPrice == totalPrice)
         {
-            // 결제 성공 → 초기화 후 포스기 닫기
+            // 결제 성공 → 손님 카운트 증가
             Debug.Log("결제 완료");
+            CustomerManager.Instance.OnCustomerServed(); // ← 손님 처리 카운트
             totalPrice = 0;
             currentInput = "";
             ClosePOS();
@@ -157,10 +156,8 @@ public class POSUIManager : MonoBehaviour
     // ── 디스플레이 텍스트 갱신 ───────────────────
     private void UpdateDisplay()
     {
-        // 입력값 없으면 "0" 표시
         displayText.text = currentInput.Length > 0 ? currentInput : "0";
 
-        // 총 가격 텍스트 갱신
         if (totalPriceText != null)
             totalPriceText.text = "총 가격: " + totalPrice.ToString() + "원";
     }
