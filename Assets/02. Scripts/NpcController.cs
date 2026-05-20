@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NpcController : MonoBehaviour
 {
     public float speed = 2f;
 
     Vector3 startPos;
+    Transform desk;
+
+    List<Transform> activatedDeskChildren = new List<Transform>();
 
     Vector3[] targets = new Vector3[]
     {
@@ -20,6 +24,11 @@ public class NpcController : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
+
+        GameObject deskObj = GameObject.Find("Desk");
+        if (deskObj != null)
+            desk = deskObj.transform;
+
         StartCoroutine(NpcRoutine());
     }
 
@@ -29,17 +38,58 @@ public class NpcController : MonoBehaviour
         {
             yield return StartCoroutine(MoveTo(targets[i]));
 
-            // 마지막 좌표 도착 시 실행
             if (i == targets.Length - 1)
             {
-                Debug.Log("HI");
+                ActivateRandomDeskObjects();
                 yield return new WaitForSeconds(2f);
+                DeactivateDeskObjects();
             }
         }
 
         yield return StartCoroutine(MoveTo(startPos));
-
         Destroy(gameObject);
+    }
+
+    void ActivateRandomDeskObjects()
+    {
+        if (desk == null || desk.childCount == 0) return;
+
+        activatedDeskChildren.Clear();
+
+        List<Transform> children = new List<Transform>();
+        for (int i = 0; i < desk.childCount; i++)
+        {
+            children.Add(desk.GetChild(i));
+        }
+
+        // 셔플
+        for (int i = 0; i < children.Count; i++)
+        {
+            int rand = Random.Range(i, children.Count);
+            Transform temp = children[i];
+            children[i] = children[rand];
+            children[rand] = temp;
+        }
+
+        // 1~4개 랜덤 선택 (자식 수 초과 방지)
+        int count = Random.Range(1, Mathf.Min(5, children.Count + 1));
+
+        for (int i = 0; i < count; i++)
+        {
+            children[i].gameObject.SetActive(true);
+            activatedDeskChildren.Add(children[i]);
+        }
+    }
+
+    void DeactivateDeskObjects()
+    {
+        foreach (Transform t in activatedDeskChildren)
+        {
+            if (t != null)
+                t.gameObject.SetActive(false);
+        }
+
+        activatedDeskChildren.Clear();
     }
 
     IEnumerator MoveTo(Vector3 target)
@@ -49,9 +99,7 @@ public class NpcController : MonoBehaviour
             Vector3 dir = (target - transform.position).normalized;
 
             if (dir != Vector3.zero)
-            {
                 transform.forward = dir;
-            }
 
             transform.position = Vector3.MoveTowards(
                 transform.position,

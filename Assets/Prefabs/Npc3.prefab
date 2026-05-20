@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 37bf40dde8dc56946b13ac32f1af0a4d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.20478
+      value: -1.24412
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37bf40dde8dc56946b13ac32f1af0a4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.863
+      value: 4.43297
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37bf40dde8dc56946b13ac32f1af0a4d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.33087
+      value: 17.03629
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37bf40dde8dc56946b13ac32f1af0a4d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -103,3 +103,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NpcController
   speed: 2
+  desk: {fileID: 0}
