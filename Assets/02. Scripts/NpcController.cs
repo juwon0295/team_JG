@@ -41,8 +41,9 @@ public class NpcController : MonoBehaviour
             if (i == targets.Length - 1)
             {
                 ActivateRandomDeskObjects();
-                yield return new WaitForSeconds(2f);
-                DeactivateDeskObjects();
+
+                // ✅ 모든 오브젝트가 꺼질 때까지 대기
+                yield return StartCoroutine(WaitUntilAllDeactivated());
             }
         }
 
@@ -106,6 +107,28 @@ public class NpcController : MonoBehaviour
                 target,
                 speed * Time.deltaTime
             );
+
+            yield return null;
+        }
+    }
+
+    IEnumerator WaitUntilAllDeactivated()
+    {
+        while (true)
+        {
+            bool anyActive = false;
+
+            foreach (Transform t in activatedDeskChildren)
+            {
+                if (t != null && t.gameObject.activeSelf)
+                {
+                    anyActive = true;
+                    break;
+                }
+            }
+
+            if (!anyActive)
+                yield break; // 전부 꺼졌으면 종료
 
             yield return null;
         }
