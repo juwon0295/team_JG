@@ -36,4 +36,15 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Phase 2 시작: 이동 가능 + 미션 등장");
     }
+
+    void Update()
+    {
+        // ── 임시 테스트용: F1 누르면 강제로 Phase 2 진입 ──
+        // 테스트 끝나면 이 Update() 전체 삭제
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            OnPhase2Start();
+        }
+    }
+
 }
