@@ -3007,7 +3007,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 288555663}
         m_TargetAssemblyTypeName: POSUIManager, Assembly-CSharp
-        m_MethodName: ClosePOS
+        m_MethodName: CheckPrice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
