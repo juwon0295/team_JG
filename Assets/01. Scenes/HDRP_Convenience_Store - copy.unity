@@ -932,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030987750, guid: abc00000000012407629025716045837, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030987751, guid: abc00000000012407629025716045837, type: 3}
       propertyPath: m_RootOrder
@@ -1931,7 +1931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030981649, guid: abc00000000014460862810328294457, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030981650, guid: abc00000000014460862810328294457, type: 3}
       propertyPath: m_RootOrder
@@ -4246,7 +4246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030995278, guid: abc00000000000147008595063702842, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030995279, guid: abc00000000000147008595063702842, type: 3}
       propertyPath: m_RootOrder
@@ -4757,7 +4757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 3200
   isScanned: 0
 --- !u!1001 &651518417
 PrefabInstance:
@@ -5508,7 +5508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030981501, guid: abc00000000007417211892331709104, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030981502, guid: abc00000000007417211892331709104, type: 3}
       propertyPath: m_RootOrder
@@ -6043,7 +6043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030987236, guid: abc00000000005408323882880314022, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030987237, guid: abc00000000005408323882880314022, type: 3}
       propertyPath: m_RootOrder
@@ -122740,7 +122740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 2700
   isScanned: 0
 --- !u!1 &1163759254
 GameObject:
@@ -124186,7 +124186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030981599, guid: abc00000000014630738963471281851, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030981600, guid: abc00000000014630738963471281851, type: 3}
       propertyPath: m_RootOrder
@@ -124257,7 +124257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 40000
   isScanned: 0
 --- !u!1001 &1410331486
 PrefabInstance:
@@ -125728,7 +125728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030985053, guid: abc00000000000983361431947178043, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030985054, guid: abc00000000000983361431947178043, type: 3}
       propertyPath: m_RootOrder
@@ -125799,7 +125799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 1700
   isScanned: 0
 --- !u!1 &1580782694
 GameObject:
@@ -127953,7 +127953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 3000
   isScanned: 0
 --- !u!1001 &1660024185
 PrefabInstance:
@@ -127969,7 +127969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030987534, guid: abc00000000011569129990275136255, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030987535, guid: abc00000000011569129990275136255, type: 3}
       propertyPath: m_RootOrder
@@ -128044,7 +128044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 2500
   isScanned: 0
 --- !u!1001 &1662936396
 PrefabInstance:
@@ -128060,7 +128060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030981699, guid: abc00000000001031716877953863856, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030981700, guid: abc00000000001031716877953863856, type: 3}
       propertyPath: m_RootOrder
@@ -128545,7 +128545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 38000
   isScanned: 0
 --- !u!1 &1788746456
 GameObject:
@@ -128614,7 +128614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030981403, guid: abc00000000015859971860140436240, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030981404, guid: abc00000000015859971860140436240, type: 3}
       propertyPath: m_RootOrder
@@ -129491,6 +129491,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6730088145615009466, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7033406576025631912, guid: f092c30beb531a149a6602dca83e2ff9, type: 3}
       propertyPath: posUI
       value: 
@@ -129668,7 +129672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 2200
   isScanned: 0
 --- !u!1001 &1936629884
 PrefabInstance:
@@ -130222,7 +130226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 3000
   isScanned: 0
 --- !u!1 &2080608306
 GameObject:
@@ -130374,7 +130378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae16ffd9b82c6c4c93fae501a4c7cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanableObject
-  price: 1000
+  price: 12000
   isScanned: 0
 --- !u!1001 &2093880205
 PrefabInstance:
