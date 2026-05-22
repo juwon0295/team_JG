@@ -3194,14 +3194,13 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6b85f9d6390b0a4fa44e663689a72e4, type: 2}
   m_sharedMaterial: {fileID: 2997552882677211226, guid: f6b85f9d6390b0a4fa44e663689a72e4, type: 2}
-
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3218,15 +3217,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -4449,7 +4448,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1580782695}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1030973443, guid: abc00000000008401308377337306897, type: 3}
       propertyPath: m_Name
@@ -4469,15 +4468,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030973444, guid: abc00000000008401308377337306897, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.70604
+      value: -0.869344
       objectReference: {fileID: 0}
     - target: {fileID: 1030973444, guid: abc00000000008401308377337306897, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1664457
+      value: 4.432969
       objectReference: {fileID: 0}
     - target: {fileID: 1030973444, guid: abc00000000008401308377337306897, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.318817
+      value: 15.98052
       objectReference: {fileID: 0}
     - target: {fileID: 1030973444, guid: abc00000000008401308377337306897, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4519,11 +4518,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 585947209}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000008401308377337306897, type: 3}
---- !u!4 &585947207 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1030973444, guid: abc00000000008401308377337306897, type: 3}
-  m_PrefabInstance: {fileID: 585947206}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &585947208 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1030973443, guid: abc00000000008401308377337306897, type: 3}
@@ -127396,7 +127390,6 @@ Transform:
   - {fileID: 1030973118}
   - {fileID: 1030973111}
   - {fileID: 1030973109}
-  - {fileID: 585947207}
   - {fileID: 1030973095}
   - {fileID: 1030973093}
   - {fileID: 1030973084}
@@ -130593,3 +130586,4 @@ SceneRoots:
   - {fileID: 506421901}
   - {fileID: 1547707424}
   - {fileID: 884063987}
+  - {fileID: 585947206}

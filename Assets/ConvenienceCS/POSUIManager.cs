@@ -56,6 +56,7 @@ public class POSUIManager : MonoBehaviour
     public void OpenPOS()
     {
         isOpen = true;
+        Debug.Log("포스기 열림, isOpen = " + isOpen); // ← 임시 추가
         currentInput = "";
 
         // 에러 메시지 숨기기
@@ -133,13 +134,21 @@ public class POSUIManager : MonoBehaviour
     // ── 입력값과 총 가격 비교 ─────────────────────
     public void CheckPrice()
     {
+        Debug.Log("CheckPrice 호출됨"); // ← 임시 추가
         int inputPrice = currentInput == "" ? 0 : int.Parse(currentInput);
+        Debug.Log($"입력값: {inputPrice}, 총 가격: {totalPrice}");
 
         if (inputPrice == totalPrice)
         {
-            // 결제 성공 → 손님 카운트 증가
+            // 결제 성공 → 계산대 물건 비활성화
             Debug.Log("결제 완료");
-            CustomerManager.Instance.OnCustomerServed(); // ← 손님 처리 카운트
+
+            // 현재 씬의 NpcController를 찾아서 계산대 물건 비활성화
+            NpcController npc = FindFirstObjectByType<NpcController>();
+            if (npc != null)  // ← 추가
+                npc.DeactivateDeskObjects();  // ← 추가
+
+            CustomerManager.Instance.OnCustomerServed();
             totalPrice = 0;
             currentInput = "";
             ClosePOS();
