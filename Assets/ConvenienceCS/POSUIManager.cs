@@ -33,6 +33,14 @@ public class POSUIManager : MonoBehaviour
         // UI가 열려있을 때만 키보드 입력 처리
         if (!isOpen) return;
 
+        // ESC → 포스기 닫기
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            currentInput = "";  // 입력값 초기화
+            ClosePOS();
+            return;
+        }
+
         // 숫자키 0~9 입력 감지 (일반 키 + 넘패드 동시 지원)
         for (int i = 0; i <= 9; i++)
         {
@@ -56,7 +64,6 @@ public class POSUIManager : MonoBehaviour
     public void OpenPOS()
     {
         isOpen = true;
-        Debug.Log("포스기 열림, isOpen = " + isOpen); // ← 임시 추가
         currentInput = "";
 
         // 에러 메시지 숨기기
@@ -134,9 +141,16 @@ public class POSUIManager : MonoBehaviour
     // ── 입력값과 총 가격 비교 ─────────────────────
     public void CheckPrice()
     {
-        Debug.Log("CheckPrice 호출됨"); // ← 임시 추가
         int inputPrice = currentInput == "" ? 0 : int.Parse(currentInput);
-        Debug.Log($"입력값: {inputPrice}, 총 가격: {totalPrice}");
+
+        // 총 가격이 0원이면 결제 차단 (스캔된 물건 없음)
+        if (totalPrice == 0)
+        {
+            Debug.Log("스캔된 물건이 없습니다.");
+            if (errorText != null)
+                errorText.SetActive(true);
+            return;
+        }
 
         if (inputPrice == totalPrice)
         {

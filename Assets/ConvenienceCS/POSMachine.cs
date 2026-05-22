@@ -32,16 +32,37 @@ public class POSMachine : MonoBehaviour
                 // E키를 누르면 포스기 UI 열기
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    // 활성화된 물건 중 스캔 안 된 것이 있으면 포스기 열기 차단
+                    if (!AllItemsScanned())
+                    {
+                        Debug.Log("아직 스캔 안 된 물건이 있습니다.");
+                        return;
+                    }
+
                     posUI.OpenPOS();
                 }
             }
         }
     }
 
-    // Scene 뷰에서 상호작용 범위 시각적으로 표시 (디버그용)
-    void OnDrawGizmosSelected()
+    // ── 계산대 위 활성화된 물건이 전부 스캔됐는지 확인 ──
+    bool AllItemsScanned()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactRange);
+        // "Desk" 오브젝트의 자식 중 활성화된 것만 확인
+        GameObject deskObj = GameObject.Find("Desk");
+        if (deskObj == null) return true;
+
+        foreach (Transform child in deskObj.transform)
+        {
+            // 활성화된 물건 중 스캔 안 된 것이 있으면 false
+            if (child.gameObject.activeSelf)
+            {
+                ScanableObject scanable = child.GetComponent<ScanableObject>();
+                if (scanable != null && !scanable.isScanned)
+                    return false;
+            }
+        }
+
+        return true;
     }
 }
