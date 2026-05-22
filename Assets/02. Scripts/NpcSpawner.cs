@@ -12,6 +12,8 @@ public class NpcSpawner : MonoBehaviour
         StartCoroutine(SpawnLoop());
     }
 
+    public AudioSource spawnSound;
+
     IEnumerator SpawnLoop()
     {
         while (true)
@@ -28,11 +30,17 @@ public class NpcSpawner : MonoBehaviour
                 Quaternion.identity
             );
 
+            spawnSound.Play();
+            Debug.Log("딸랑1");
+
             // NPC 사라질 때까지 대기
             while (currentNpc != null)
             {
                 yield return null;
             }
+
+            spawnSound.Play();
+            Debug.Log("딸랑2");
         }
     }
 }

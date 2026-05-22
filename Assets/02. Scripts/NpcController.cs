@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class NpcController : MonoBehaviour
 {
     public float speed = 2f;
+    public AudioSource footstepSound;
 
     Vector3 startPos;
     Transform desk;
@@ -95,6 +96,10 @@ public class NpcController : MonoBehaviour
 
     IEnumerator MoveTo(Vector3 target)
     {
+        // ✅ 이동 시작 → 발소리 재생
+        if (footstepSound != null && !footstepSound.isPlaying)
+            footstepSound.Play();
+
         while (Vector3.Distance(transform.position, target) > 0.05f)
         {
             Vector3 dir = (target - transform.position).normalized;
@@ -110,6 +115,10 @@ public class NpcController : MonoBehaviour
 
             yield return null;
         }
+
+        // ✅ 이동 끝 → 발소리 정지
+        if (footstepSound != null && footstepSound.isPlaying)
+            footstepSound.Stop();
     }
 
     IEnumerator WaitUntilAllDeactivated()
