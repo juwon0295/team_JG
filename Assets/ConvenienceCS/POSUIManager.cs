@@ -157,6 +157,18 @@ public class POSUIManager : MonoBehaviour
             // 결제 성공 → 계산대 물건 비활성화
             Debug.Log("결제 완료");
 
+            // 계산대 물건 스캔 상태 초기화 ← 추가
+            GameObject deskObj = GameObject.Find("Desk");
+            if (deskObj != null)
+            {
+                foreach (Transform child in deskObj.transform)
+                {
+                    ScanableObject scanable = child.GetComponent<ScanableObject>();
+                    if (scanable != null)
+                        scanable.isScanned = false;
+                }
+            }
+
             // 현재 씬의 NpcController를 찾아서 계산대 물건 비활성화
             NpcController npc = FindAnyObjectByType<NpcController>();
             if (npc != null)  // ← 추가
