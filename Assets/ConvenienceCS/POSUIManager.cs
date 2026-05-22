@@ -144,7 +144,7 @@ public class POSUIManager : MonoBehaviour
             Debug.Log("결제 완료");
 
             // 현재 씬의 NpcController를 찾아서 계산대 물건 비활성화
-            NpcController npc = FindFirstObjectByType<NpcController>();
+            NpcController npc = FindAnyObjectByType<NpcController>();
             if (npc != null)  // ← 추가
                 npc.DeactivateDeskObjects();  // ← 추가
 
