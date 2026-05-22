@@ -5,8 +5,8 @@ public class StoreMissionManager : MonoBehaviour
 {
     public static StoreMissionManager Instance;
 
-    [Header("미션 패널 (왼쪽 위)")]
-    public GameObject missionPanel;
+    [Header("미션 패널")]
+    public GameObject missionPanel;             // 전체 패널
 
     [Header("Phase 1 미션 텍스트")]
     public TMP_Text missionCustomer;            // "손님을 받으세요 (0/2)"
@@ -16,8 +16,8 @@ public class StoreMissionManager : MonoBehaviour
     public TMP_Text missionRestock;             // "물건을 채우세요"
     public TMP_Text missionTrash;               // "쓰레기를 치우세요"
 
-    private bool restockDone = false;           // 물건 채우기 완료 여부
-    private bool trashDone = false;             // 쓰레기 치우기 완료 여부
+    private bool restockDone = false;
+    private bool trashDone = false;
 
     private void Awake()
     {
@@ -26,16 +26,18 @@ public class StoreMissionManager : MonoBehaviour
 
     private void Start()
     {
-        // 게임 시작 시 패널 표시 + Phase 1 미션만 보이게
         missionPanel.SetActive(true);
 
-        // Phase 1 텍스트 초기화
-        UpdateCustomerMission(0, 2);
+        // Phase 1: 손님 미션만 표시
+        if (missionCustomer != null) missionCustomer.gameObject.SetActive(true);
 
-        // Phase 2 텍스트는 숨기기
+        // Phase 2 텍스트는 전부 숨기기
         if (missionCustomerPhase2 != null) missionCustomerPhase2.gameObject.SetActive(false);
         if (missionRestock != null) missionRestock.gameObject.SetActive(false);
         if (missionTrash != null) missionTrash.gameObject.SetActive(false);
+
+        // Phase 1 텍스트 초기화
+        UpdateCustomerMission(0, 2);
     }
 
     // ── 손님 카운트 갱신 (CustomerManager에서 호출) ──
@@ -48,10 +50,10 @@ public class StoreMissionManager : MonoBehaviour
     // ── Phase 2 진입 시 GameManager에서 호출 ─────
     public void ShowMissions()
     {
-        // Phase 1 텍스트 완료 처리
-        SetMissionText(missionCustomer, true);
+        // Phase 1 텍스트 숨기기
+        if (missionCustomer != null) missionCustomer.gameObject.SetActive(false);
 
-        // Phase 2 텍스트 등장
+        // Phase 2 텍스트 표시
         if (missionCustomerPhase2 != null) missionCustomerPhase2.gameObject.SetActive(true);
         if (missionRestock != null) missionRestock.gameObject.SetActive(true);
         if (missionTrash != null) missionTrash.gameObject.SetActive(true);
