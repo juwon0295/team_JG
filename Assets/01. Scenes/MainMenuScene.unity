@@ -323,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 647242632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.692, y: 1.7, z: 4.464}
+  m_LocalPosition: {x: -2.692, y: 1.7, z: 4.603}
   m_LocalScale: {x: 0.1, y: 0.2, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -800,8 +800,9 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 7
   gravity: -9.81
-  jumpHeight: 2
   mouseSpeed: 1.5
+  posUI: {fileID: 0}
+  canMove: 1
 --- !u!1 &1135763070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,10 +1673,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "E\uD0A4\uB97C \uB20C\uB7EC \uD3B8\uC758\uC810\uC73C\uB85C \uC774\uB3D9"
+  m_text: "E\uD0A4\uB97C \uB20C\uB7EC \uC774\uB3D9"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3568e71df21078a48913f4232d8b4f7a, type: 2}
-  m_sharedMaterial: {fileID: 5617579765862165762, guid: 3568e71df21078a48913f4232d8b4f7a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f6b85f9d6390b0a4fa44e663689a72e4, type: 2}
+  m_sharedMaterial: {fileID: 2997552882677211226, guid: f6b85f9d6390b0a4fa44e663689a72e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
