@@ -10,14 +10,14 @@ EditorBuildSettings:
     guid: d35bb92ebc4909f429a1123f4aba080e
   - enabled: 1
     path: Assets/01. Scenes/ConvenienceStoreScene.unity
-    guid: 3a2429481f79147449c7b5493634b59a
-  - enabled: 1
+    guid: 0be8f725c104f824fb923871a4cf1980
+  - enabled: 0
     path: Assets/01. Scenes/FastFoodScene.unity
     guid: 57c222416be107545b7d2f96c1dfebcb
-  - enabled: 1
+  - enabled: 0
     path: Assets/01. Scenes/ClothingScene.unity
     guid: bd983d4e8d22fce4792435c3f9b6dda9
-  - enabled: 1
+  - enabled: 0
     path: Assets/01. Scenes/CharacterMoveScene.unity
     guid: 55f392d493eed3a43800d299dfe727ec
   m_configObjects: {}
